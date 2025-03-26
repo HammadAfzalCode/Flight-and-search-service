@@ -1,4 +1,4 @@
-const { where } = require('sequelize'); 
+const { where } = require('sequelize');
 const { City } = require('../models/city');
 
 class CityRepository {
@@ -30,9 +30,9 @@ class CityRepository {
             throw error;
         }
     }
-    async updateCity({ cityId, name }) {
+    async updateCity({ cityId, data }) {
         try {
-            const city = await City.update(name, { where: { id: cityId } });
+            const city = await City.update(data, { where: { id: cityId } });
             // const city = await City.findBykPk(cityId);
             return city;
         } catch (error) {
