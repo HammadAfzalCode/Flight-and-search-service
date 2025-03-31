@@ -43,7 +43,7 @@ const update = async (req, res) => {
     const { id } = req.params
     const { name } = req.body
     try {
-        const city = await CityService.updateCity(id, name)
+        const city = await CityService.updateCity({ id, name })
         return res.status(200).json({
             data: city,
             success: true,
